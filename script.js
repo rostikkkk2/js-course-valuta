@@ -23,22 +23,24 @@ if (grn < 0){
 
   var ask_what_value = prompt("В какую валюту вы хотите перевести ваши деньги?");
 
+  var choosen_currency = "Вы действительно хотите перевести "  + grn + " гривен в ";
+
   if (ask_what_value == "доллар" || "dolar" || "$"){
-    var conf_usd = confirm("Вы действительно хотите перевести " + grn + " гривен в " + Math.round(usd_grn * 100) / 100 + " долларов?");
+    var conf_usd = confirm(choosen_currency + Math.round(usd_grn * 100) / 100 + " долларов?");
     if (conf_usd == true){
       alert("Спасибо");
     }else{
       alert("Приходите в другой раз");
     }
   }else if (ask_what_value == "евро" || "euro" || "€"){
-    var conf_eur = confirm("Вы действительно хотите перевести " + grn + " гривен в " + Math.round(eur_grn * 100) / 100 + " евро?");
+    var conf_eur = confirm(choosen_currency + Math.round(eur_grn * 100) / 100 + " евро?");
     if (conf_eur == true){
       alert("Спасибо");
     }else{
       alert("Приходите в другой раз");
     }
   }else if (ask_what_value == "рубль" || "рубли" || "rub" || "₽"){
-    var conf_rub = confirm("Вы действительно хотите перевести " + grn + " гривен в " + rub_grn + " рублей?");
+    var conf_rub = confirm(choosen_currency + rub_grn + " рублей?");
     if (conf_rub == true){
       alert("Спасибо");
     }else{
