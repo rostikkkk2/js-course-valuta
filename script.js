@@ -13,40 +13,33 @@ if (grn < 0){
   var usd_grn = grn / usd;
   var eur_grn = grn / eur;
   var rub_grn = grn / rub;
-
   alert(
     "Вы можете получить: " + "\n"
     + Math.round(usd_grn * 100) / 100 + " доларов" + "\n"
     + Math.round(eur_grn * 100) / 100 + " евро" + "\n"
     + rub_grn + " рублей"
   );
-
   var ask_what_value = prompt("В какую валюту вы хотите перевести ваши деньги?");
-
-  var choosen_currency = "Вы действительно хотите перевести "  + grn + " гривен в ";
-
-  if (ask_what_value == "доллар" || "dolar" || "$"){
-    var conf_usd = confirm(choosen_currency + Math.round(usd_grn * 100) / 100 + " долларов?");
-    if (conf_usd == true){
-      alert("Спасибо");
+  if (!isNaN(ask_what_value)){
+   alert("вы ввели цифры");
+ }else{
+    var choosen_currency = "Вы действительно хотите перевести "  + grn + " гривен в ";
+    var part_value;
+    if(ask_what_value == "доллар" && "dolar" && "$"){
+      part_value = Math.round(usd_grn * 100) / 100 + " долларов?";
+    }else if (ask_what_value == "евро" && "euro" && "€"){
+      part_value = Math.round(eur_grn * 100) / 100 + " евро?";
     }else{
-      alert("Приходите в другой раз");
+      part_value = rub_grn + " рублей?";
     }
-  }else if (ask_what_value == "евро" || "euro" || "€"){
-    var conf_eur = confirm(choosen_currency + Math.round(eur_grn * 100) / 100 + " евро?");
-    if (conf_eur == true){
-      alert("Спасибо");
-    }else{
-      alert("Приходите в другой раз");
+    var confirm_money = confirm(choosen_currency + part_value);
+    if (ask_what_value == "доллар" && "dolar" && "$"){
+      var conf = confirm_money;
+    }else if (ask_what_value == "евро" && "euro" && "€"){
+      var conf = confirm_money;
+    }else if (ask_what_value == "рубль" && "рубли" && "rub" && "₽"){
+      var conf = confirm_money;
     }
-  }else if (ask_what_value == "рубль" || "рубли" || "rub" || "₽"){
-    var conf_rub = confirm(choosen_currency + rub_grn + " рублей?");
-    if (conf_rub == true){
-      alert("Спасибо");
-    }else{
-      alert("Приходите в другой раз");
-    }
-  }else{
-    alert("Возможно вы неправильно ввели название валюты или нет такой валюты или тут не стоит провека на большие буквы");
+      conf ? (alert("Спасибо")) : (alert("Приходите в другой раз"));
   }
 }
